@@ -12,11 +12,11 @@ Modules and Libraries:
 """
 
 """
-Author: Your Name
-GitHub Link: https://github.com/your-username/your-repo
+Author: Alejandro Martinez
+GitHub Link: https://github.com/AlejandroMartinez-05/CS-Final-Project
 Project: Book Analyzer (CS I Project)
-Extra credit: I have fixed the bug in line no:.... or 
-              I implemeted a new feature:  if choice == '6', new feature ............ will be executed
+Extra credit:   I saved the book titles in lowercase to keep the naming consistent.
+                I implemeted a new feature:  if choice == '6', user can now give books a 1-5 star rating, which the system saves and tracks automatically.
 """
 
 import requests
@@ -29,8 +29,10 @@ from collections import Counter
 # -----------------------------
 
 my_library = {
-    "Moby Dick": "https://www.gutenberg.org/files/2701/2701-0.txt"
+    "moby dick": "https://www.gutenberg.org/files/2701/2701-0.txt"
 }
+
+my_book_rating = {}
 
 # TODO 3: Read stop words from a file instead; this file "EN-Stopwords" contains thousands stop words(2 points)
 with open("EN-Stopwords.txt", "r") as f:
@@ -104,8 +106,9 @@ def main():
         print("3. Update Book URL")
         print("4. Analyze a Book")
         print("5. Exit")
+        print("6. Rate a Book")
 
-        choice = input("\nSelect (1-5): ")
+        choice = input("\nSelect (1-6): ")
 
         if choice == '1':
             # Add new books to the dictionary (use this website: https://www.gutenberg.org/browse/scores/top)
@@ -191,6 +194,23 @@ def main():
             print("Goodbye!")
             break
 
+        elif choice == '6':
+            name_input = input("Which book to rate? ").strip().lower()
+            #norm_book = name_input.strip().lower()
+            
+            if name_input not in my_book_rating:
+                if name_input in my_library:
+                    rate = input("What is your rate on this book from 1-5? ")
+                    if rate.isdigit():
+                        my_book_rating[name_input] = rate
+                        print('*' * int(rate))
+                    else:
+                        print("Please enter a valid number.")
+                else:
+                    print("This book does not exist!")
+            else:
+                print("This book has already been rated!")
 
+               
 if __name__ == "__main__":
     main()
