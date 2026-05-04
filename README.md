@@ -1,20 +1,40 @@
-# Book Analyzer (CS I Project)
+# Book Analyzer — CS I Project
 
-A Python-based library management system and text analysis tool. This project allows users to maintain a digital library of book URLs (primarily from Project Gutenberg) and perform frequency analysis on the text to identify the most common significant words.
+Author: Alejandro Martinez  
+GitHub: https://github.com/AlejandroMartinez-05/CS-Final-Project
+
+A menu‑driven Python program that manages a personal library of books, downloads text from Project Gutenberg, processes the text, and displays the most frequent words. The program also supports book ratings and basic input validation.
 
 ## Features
 
-- **Library Management**: 
-  - Add new books with normalized titles and URLs.
-  - Remove books using case-insensitive title matching.
-  - Update existing book URLs.
-- **Text Analysis**: 
-  - Fetches raw text directly from web URLs using the `requests` library.
-  - Cleans text by removing punctuation and converting to lowercase.
-  - Filters out "stop words" using a comprehensive list of thousands of common English words.
-  - Excludes short words (less than 3 characters) to focus on meaningful content.
-- **Visualization**: 
-  - Generates a horizontal bar chart in the terminal using ASCII characters (`█`) to represent word frequencies.
+### Library Management
+- Add, remove, and update books  
+- Case‑insensitive matching  
+- Duplicate prevention  
+- Titles normalized to lowercase  
+
+### Text Analysis
+- Fetch book text using `requests`  
+- Clean and tokenize text  
+- Remove stop words loaded from `EN-Stopwords.txt`  
+- Count word frequencies using `collections.Counter`  
+- Display top 10 most common words  
+
+### Visualization
+- ASCII bar chart showing word frequency  
+
+### Extra Credit
+- Lowercase storage for book titles  
+- Rating system (1–5 stars) stored in memory  
+
+## Concepts Practiced
+- Functions  
+- Loops and menu‑driven programs  
+- Lists and filtering  
+- Dictionaries  
+- Regular expressions  
+- API requests  
+- Counters and frequency analysis
 
 ## Requirements
 
